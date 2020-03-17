@@ -267,7 +267,7 @@ class AllureCodeception extends Extension
             $className = get_class($test->getTestClass());
             $event->setLabels(array_merge($event->getLabels(), [
                 new Label("testMethod", $methodName),
-                new Label("testClass", $className)
+                new Label("testClass", "(" . $test->getScenario()->current('env') . ") " . $className)
             ]));
             $annotations = [];
             if (class_exists($className, false)) {
